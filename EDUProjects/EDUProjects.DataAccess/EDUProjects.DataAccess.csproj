@@ -13,4 +13,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EDUProjects.ApplicationLogic\EDUProjects.ApplicationLogic.csproj" />
+  </ItemGroup>
+
 </Project>

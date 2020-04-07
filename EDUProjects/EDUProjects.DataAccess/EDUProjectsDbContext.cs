@@ -1,4 +1,4 @@
-﻿using EDUProjects.ApplicationLogic.Data
+﻿using EDUProjects.ApplicationLogic.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
