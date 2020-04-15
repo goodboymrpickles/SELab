@@ -1,0 +1,48 @@
+﻿@model EDUProjects.Models.ClassModel.GetAllClassesViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Classes List</h1>
+
+<br />
+
+<table class="table" BORDERCOLOR=#c99797>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Class Id")
+            </th>
+            <th>
+                @Html.DisplayName("Subject title")
+            </th>
+            <th>
+                @Html.DisplayName("Desciption")
+            </th>
+            @*<th>
+                    @Html.DisplayName("Enrollment Id")
+                </th>
+                <th>
+                    @Html.DisplayName("Teacher Id")
+                </th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Classes)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Subject_Title)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => item.Description)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

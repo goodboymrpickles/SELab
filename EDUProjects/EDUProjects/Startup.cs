@@ -13,6 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using EDUProjects.DataAccess;
+using EDUProjects.ApplicationLogic.Abstractions;
+using EDUProjects.ApplicationLogic.Services;
 
 namespace EDUProjects
 {
@@ -38,6 +40,11 @@ namespace EDUProjects
 
 			services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
 				.AddEntityFrameworkStores<ApplicationDbContext>();
+
+			services.AddScoped<IClassRepository, ClassRepository>();
+			services.AddScoped<ClassService>();
+
+
 			services.AddControllersWithViews();
 			services.AddRazorPages();
 		}
