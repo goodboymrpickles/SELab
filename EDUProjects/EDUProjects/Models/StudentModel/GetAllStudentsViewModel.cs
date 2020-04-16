@@ -9,6 +9,6 @@ namespace EDUProjects.Models.StudentModel
    
    public class GetAllStudentsViewModel
     {
-        public IEnumerable<Student> Students { get; set; }
+        public IEnumerable<Student>Students { get; set; }
     }
 }
