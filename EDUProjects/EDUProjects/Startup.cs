@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using EDUProjects.DataAccess;
 using EDUProjects.ApplicationLogic.Abstractions;
 using EDUProjects.ApplicationLogic.Services;
+using EDUProjects.ApplicationLogic.Service;
 
 namespace EDUProjects
 {
@@ -44,9 +45,12 @@ namespace EDUProjects
 			services.AddScoped<IClassRepository, ClassRepository>();
 			services.AddScoped<ClassService>();
 
+			services.AddScoped<ITeacherRepository, TeacherRepository>();
+			services.AddScoped<TeacherService>();
 
 			services.AddControllersWithViews();
 			services.AddRazorPages();
+			
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

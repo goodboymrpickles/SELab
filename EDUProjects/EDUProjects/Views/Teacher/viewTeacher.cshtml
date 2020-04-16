@@ -1,0 +1,60 @@
+﻿@model EDUProjects.Models.TeacherModel.GetAllTeachersViewModel
+@{
+    ViewData["Title"] = "ViewTeacher";
+}
+
+<h1>Teachers list</h1>
+
+<br />
+
+<table class="table" BORDERCOLOR=#c99797>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Teacher Id")
+            </th>
+            <th>
+                @Html.DisplayName("Teacher name")
+            </th>
+            <th>
+                @Html.DisplayName("Department")
+            </th>
+            @*<th>
+                    @Html.DisplayName("Enrollment Id")
+                </th>
+                <th>
+                    @Html.DisplayName("Teacher Id")
+                </th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Teachers)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Id)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => item.Full_Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => item.Address)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => item.Birth_Date)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => item.Department)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => item.Email)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
