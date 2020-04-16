@@ -15,7 +15,6 @@ using Microsoft.Extensions.Hosting;
 using EDUProjects.DataAccess;
 using EDUProjects.ApplicationLogic.Abstractions;
 using EDUProjects.ApplicationLogic.Service;
-using EDUProjects.ApplicationLogic.Service;
 using EDUProjects.ApplicationLogic.Services;
 
 namespace EDUProjects
@@ -51,6 +50,9 @@ namespace EDUProjects
 			
 			services.AddScoped<ITeacherRepository, TeacherRepository>();
 			services.AddScoped<TeacherService>();
+
+			services.AddScoped<IProjectRepository, ProjectRepository>();
+			services.AddScoped<ProjectService>();
 
 			services.AddControllersWithViews();
 			services.AddRazorPages();

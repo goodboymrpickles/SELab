@@ -8,5 +8,6 @@ namespace EDUProjects.ApplicationLogic.Abstractions
     public interface IProjectRepository : IRepository<Project>
     {
         Project GetProjectById(Guid projectId);
+
     }
 }
