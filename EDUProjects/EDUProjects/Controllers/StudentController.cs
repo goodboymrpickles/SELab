@@ -13,7 +13,7 @@ namespace EDUProjects.Controllers
     public class StudentController : Controller
     {
         private readonly StudentService studentService;
-        private IEnumerable<Student> students;
+       
 
         public StudentController(StudentService studentService)
         {
@@ -26,7 +26,7 @@ namespace EDUProjects.Controllers
         {
             try
             {
-                var classes = studentService.GetAll();
+                var students = studentService.GetAll();
 
                 return View(new GetAllStudentsViewModel { Students = students });
             }
