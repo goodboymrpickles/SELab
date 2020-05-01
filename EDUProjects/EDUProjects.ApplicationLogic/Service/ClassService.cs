@@ -55,11 +55,11 @@ namespace EDUProjects.ApplicationLogic.Services
         //    classRepository.Delete(class);
         //}
 
-        //public void DeleteClass(Guid tripId)
-        //{
-        //    var classes = classRepository.GetClassBy(classId);
-        //    classRepository.Delete(class);
-        //}
+        public void DeleteClass(Guid classId)
+        {
+            var oneClass = classRepository.GetClassById(classId);
+            classRepository.Delete(oneClass);
+        }
 
     //public void UpdateClass(Guid classId, string subjectTitle, string description)
     //{

@@ -10,12 +10,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace EDUProjects.Controllers
 {
 
-    public class ClassController : Controller
+    public class ClassesController : Controller
     {
         private readonly ClassService classService;
 
 
-        public ClassController(ClassService classService)
+        public ClassesController(ClassService classService)
         {
 
             this.classService = classService;
@@ -42,11 +42,11 @@ namespace EDUProjects.Controllers
             return View();
         }
 
-        //[HttpGet]
-        //public IActionResult DeleteClass()
-        //{
-        //    return View();
-        //}
+        [HttpGet]
+        public IActionResult DeleteClass()
+        {
+            return View();
+        }
 
         //[HttpGet]
         //public IActionResult UpdateClass()
@@ -65,16 +65,16 @@ namespace EDUProjects.Controllers
 
             classService.AddClass(model.Subject_Title, model.Description);
 
-            return Redirect(Url.Action("Index", "Class"));
+            return Redirect(Url.Action("Index", "Classes"));
 
         }
 
-        //[HttpPost]
-        //public IActionResult DeleteClass(Guid id)
-        //{
-        //    classService.DeleteClass(id);
-        //    return Redirect(Url.Action("Index", "Class"));
-        //}
+        [HttpPost]
+        public IActionResult DeleteClass(Guid id)
+        {
+            classService.DeleteClass(id);
+            return Redirect(Url.Action("Index", "Classes"));
+        }
 
         //[HttpPost]
         //public IActionResult UpdateClass([FromForm]UpdateTripViewModel model, Guid id)
