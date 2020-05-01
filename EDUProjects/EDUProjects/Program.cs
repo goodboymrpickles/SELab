@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace EDUProjects
 {
+	//test
 	public class Program
 	{
 		public static void Main(string[] args)
