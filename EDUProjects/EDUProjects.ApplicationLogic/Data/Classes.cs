@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EDUProjects.ApplicationLogic.Data
 {
-    class Classes
+    public class Classes
     {
     }
 }
