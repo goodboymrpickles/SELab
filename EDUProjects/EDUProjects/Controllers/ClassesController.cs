@@ -43,9 +43,11 @@ namespace EDUProjects.Controllers
         }
 
         [HttpGet]
-        public IActionResult DeleteClass()
+        public IActionResult DeleteClass([FromRoute]Guid id)
         {
-            return View();
+            //create instance
+            var deleteVM = new DeleteClassViewModel { Id = id, SubjectName = classService.GetClassName(id) };
+            return View(deleteVM);
         }
 
         //[HttpGet]
@@ -70,9 +72,9 @@ namespace EDUProjects.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteClass(Guid id)
+        public IActionResult DeleteClass(DeleteClassViewModel delVM)
         {
-            classService.DeleteClass(id);
+            classService.DeleteClass(delVM.Id);
             return Redirect(Url.Action("Index", "Classes"));
         }
 

@@ -55,6 +55,12 @@ namespace EDUProjects.ApplicationLogic.Services
         //    classRepository.Delete(class);
         //}
 
+        public string GetClassName(Guid id)
+        {
+            var classObj = classRepository.GetClassById(id);
+            return classObj.Subject_Title;
+        }
+
         public void DeleteClass(Guid classId)
         {
             var oneClass = classRepository.GetClassById(classId);
