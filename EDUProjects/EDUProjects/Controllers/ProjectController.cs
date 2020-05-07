@@ -18,15 +18,13 @@ namespace EDUProjects.Controllers
         private readonly TeacherService teacherService;
 
 
-        public ProjectController(ProjectService projectService)
+        public ProjectController(ProjectService projectService,TeacherService teacherService)
         {
             this.projectService = projectService;
-        }
-
-        public ProjectController(TeacherService teacherService)
-        {
             this.teacherService = teacherService;
         }
+
+      
 
 
         public ActionResult Index()
