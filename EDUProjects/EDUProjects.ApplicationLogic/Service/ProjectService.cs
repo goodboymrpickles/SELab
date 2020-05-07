@@ -9,6 +9,7 @@ namespace EDUProjects.ApplicationLogic.Service
     public class ProjectService
     {
         IProjectRepository projectRepository;
+        IGradingRepository gradingRepository;
 
         public ProjectService(IProjectRepository projectRepository)
         {
@@ -37,6 +38,16 @@ namespace EDUProjects.ApplicationLogic.Service
             {
                 Id = Guid.NewGuid(),
                 Project_Title = title
+            });
+        }
+
+        public void AddGrade(int grade)
+        {
+
+            gradingRepository.Add(new Grading()
+            {
+                Id = Guid.NewGuid(),
+                Grade = grade,
             });
         }
 
