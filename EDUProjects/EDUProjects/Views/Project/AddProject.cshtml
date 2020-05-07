@@ -13,16 +13,19 @@
         </div>
         <div class="col-10">
             <button type="submit" asp-for="Project_Title"> Upload </button>
-            
+
         </div>
- </div>
+    </div>
 
 
 
     <div class="row">
-        <div class="col-10"></div>
-        <div class="col-2">
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="col-10">
+            <a href='@Url.Action("AddComent", "Project")' class="btn btn-primary"> Add Comment</a>
+
+        </div>
+       <div class="col-2">
+                <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
 </form>
