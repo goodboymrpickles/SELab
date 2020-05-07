@@ -54,5 +54,30 @@ namespace EDUProjects.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult AddComment()
+        {
+            return View();
+        }
+
+       // [HttpPost]
+
+      //  public IActionResult AddComment([FromForm]AddCommentViewModel model)
+      //  {
+           // if (!ModelState.IsValid)
+           // {
+
+             //   return BadRequest();
+
+            //}
+
+          //  TeacherService.AddComment(model.Feedback);
+
+
+
+           // return Redirect(Url.Action("Index", "Feedback"));
+
+       // }
+
     }
 }
