@@ -10,6 +10,7 @@ namespace EDUProjects.DataAccess
 {
     public class ClassRepository : BaseRepository<Class>, IClassRepository
     {
+        
         public ClassRepository(EDUProjectsDbContext dbContext) : base(dbContext)
         {
 
@@ -19,5 +20,12 @@ namespace EDUProjects.DataAccess
             var oneClass = dbContext.Classes.Where(p => p.Projects.Any(project => project.Id == projectId)).SingleOrDefault();
             return oneClass;
         }
+
+        public Class GetClassById(Guid classId)
+        {
+            var oneClass = dbContext.Classes.Where(p => p.Id == classId).SingleOrDefault();
+            return oneClass;
+        }
+
     }
 }

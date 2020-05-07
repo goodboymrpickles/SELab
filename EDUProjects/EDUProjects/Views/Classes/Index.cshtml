@@ -6,7 +6,7 @@
 <h1>Classes List</h1>
 
 <br />
-
+<a href='@Url.Action("AddClass", "Classes")'>Add class</a>
 <table class="table" BORDERCOLOR=#c99797>
     <thead>
         <tr>
@@ -25,19 +25,21 @@
     <tbody>
         @foreach (var item in Model.Classes)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(model => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.Subject_Title)
-                </td>
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(model => item.Subject_Title)
+            </td>
 
-                <td>
-                    @Html.DisplayFor(model => item.Description)
-                </td>
-
-            </tr>
+            <td>
+                @Html.DisplayFor(model => item.Description)
+            </td>
+            
+            <td>
+                <a asp-action="DeleteClass" asp-route-id="@item.Id">Delete</a>
+                @*<a asp-action="UpdateTrip" asp-route-id="@item.TripId">Update</a>*@
+            </td>
+        </tr>   
         }
     </tbody>
 </table>

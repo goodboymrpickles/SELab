@@ -30,5 +30,56 @@ namespace EDUProjects.ApplicationLogic.Services
         {
             return classRepository.GetAll();
         }
-    }
+
+        //Add trip
+        public void AddClass(string subjectTitle, string description)
+        {
+
+            classRepository.Add(new Class()
+            {
+                Id = Guid.NewGuid(),
+                Subject_Title = subjectTitle,
+                Description = description,
+            });
+        }
+
+        ////Remove trip
+        //public void RemoveClass(string classId)
+        //{
+        //    Guid classIdGuid = Guid.Empty;
+        //    if (!Guid.TryParse(classId, out classIdGuid))
+        //    {
+        //        throw new Exception("Invalid Guid Format");
+        //    }
+        //    var class = classRepository.GetClassBy(classId);
+        //    classRepository.Delete(class);
+        //}
+
+        public string GetClassName(Guid id)
+        {
+            var classObj = classRepository.GetClassById(id);
+            return classObj.Subject_Title;
+        }
+
+        public void DeleteClass(Guid classId)
+        {
+            var oneClass = classRepository.GetClassById(classId);
+            classRepository.Delete(oneClass);
+        }
+
+    //public void UpdateClass(Guid classId, string subjectTitle, string description)
+    //{
+    //    //Guid tripIdGuid = Guid.Empty;
+    //    //if (!Guid.TryParse(classId, out classIdGuid))
+    //    //{
+    //    //    throw new Exception("Invalid Guid Format");
+    //    //}
+
+    //    var class = tripRepository.GetTripBy(tripId);
+    //    class.Subject_title = subjectTitle;
+    //    class.Description = description;
+    //   
+    //    classRepository.Update(trip);
+    //}
+}
 }
