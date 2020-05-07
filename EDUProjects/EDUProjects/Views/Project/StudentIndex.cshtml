@@ -1,0 +1,36 @@
+﻿@model EDUProjects.Models.ProjectModel.TeacherProjectViewModel
+@{
+    ViewData["Title"] = "StudentIndex";
+}
+  <h1>Upload Project </h1>
+ <a href='@Url.Action("AddProject", "Project")'>Add project</a>
+
+
+<br />
+<table class="table">
+    <thead>
+        <tr>
+          
+            <th>
+                @Html.DisplayName("Title")
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Projects)
+        {
+            <tr>
+                
+                <td>
+                    @Html.DisplayFor(model => item.Project_Title)
+                </td>
+
+
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+<button type="submit" style="float:right"> Submit </button>

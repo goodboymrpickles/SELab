@@ -30,5 +30,16 @@ namespace EDUProjects.ApplicationLogic.Service
         {
             return projectRepository.GetAll();
         }
+        public void AddProject(string title)
+        {
+
+            projectRepository.Add(new Project()
+            {
+                Id = Guid.NewGuid(),
+                Project_Title = title
+            });
+        }
+
+
     }
 }

@@ -35,6 +35,24 @@ namespace EDUProjects.Controllers
                 return BadRequest("Invalid request received");
             }
         }
+        [HttpGet]
+        public IActionResult AddProject()
+        {
+            return View();
+        }
+        public ActionResult StudentIndex()
+        {
+            try
+            {
+                var projects = projectService.GetAll();
+
+                return View(new TeacherProjectViewModel { Projects = projects });
+            }
+            catch (Exception)
+            {
+                return BadRequest("Invalid request received");
+            }
+        }
 
     }
 }
