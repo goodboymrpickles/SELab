@@ -13,12 +13,14 @@ namespace EDUProjects.Controllers
     public class StudentController : Controller
     {
         private readonly StudentService studentService;
+        private readonly RegisterService registerService;
        
 
-        public StudentController(StudentService studentService)
+        public StudentController(StudentService studentService, RegisterService registerService)
         {
 
             this.studentService = studentService;
+            this.registerService = registerService;
         }
 
         // GET: Student
@@ -34,6 +36,27 @@ namespace EDUProjects.Controllers
             {
                 return BadRequest("Invalid request received");
             }
+        }
+
+        [HttpGet]
+        public IActionResult AddStudent()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddStudent([FromForm] AddStudentViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest();
+            }
+
+            registerService.AddStudent(model.FullName, model.University, model.Section, model.Email,
+                model.BirthDate, model.Phone_Number, model.Address); 
+
+            return Redirect(Url.Action("Index", "StudentRegister"));
         }
 
     }

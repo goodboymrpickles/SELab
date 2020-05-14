@@ -11,8 +11,8 @@ namespace EDUProjects.ApplicationLogic.Service
         IProjectRepository projectRepository;
         IGradingRepository gradingRepository;
 
-        public ProjectService(IProjectRepository projectRepository)
-        {
+        public ProjectService(IProjectRepository projectRepository, IGradingRepository gradingRepository) { 
+            this.gradingRepository = gradingRepository;
             this.projectRepository = projectRepository;
         }
 

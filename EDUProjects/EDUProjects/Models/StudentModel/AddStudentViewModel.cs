@@ -1,18 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace EDUProjects.ApplicationLogic.Data
+namespace EDUProjects.Models.StudentModel
 {
-    public class Student 
+    public class AddStudentViewModel
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
+        public string FullName { get; set; }
+
         public string University { get; set; }
+
         public string Section { get; set; }
+
         public string Email { get; set; }
-        public DateTime Birth_Date { get; set; }
+
+        public DateTime BirthDate { get; set; }
+
         public string Phone_Number { get; set; }
+
         public string Address { get; set; }
+
     }
 }

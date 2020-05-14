@@ -12,8 +12,8 @@ namespace EDUProjects.ApplicationLogic.Service
         ITeacherRepository teacherRepository;
         IGradingRepository gradingRepository;
 
-        public TeacherService(ITeacherRepository teacherRepository)
-        {
+        public TeacherService(ITeacherRepository teacherRepository, IGradingRepository gradingRepository) {  
+            this.gradingRepository = gradingRepository;
             this.teacherRepository = teacherRepository;
         }
 
@@ -40,8 +40,9 @@ namespace EDUProjects.ApplicationLogic.Service
             gradingRepository.Add(new Grading()
             {
                 Id = Guid.NewGuid(),
+                Teacher = new Teacher(),
                 Feedback = comment,
-            });
+            }) ;
         }
     }
 }
