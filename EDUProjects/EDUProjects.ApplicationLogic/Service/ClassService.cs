@@ -38,12 +38,12 @@ namespace EDUProjects.ApplicationLogic.Services
             classRepository.Add(new Class()
             {
                 Id = Guid.NewGuid(),
-                Subject_Title = subjectTitle,
+                SubjectTitle = subjectTitle,
                 Description = description,
             });
         }
 
-        ////Remove trip
+        ////Remove class
         //public void RemoveClass(string classId)
         //{
         //    Guid classIdGuid = Guid.Empty;
@@ -58,7 +58,7 @@ namespace EDUProjects.ApplicationLogic.Services
         public string GetClassName(Guid id)
         {
             var classObj = classRepository.GetClassById(id);
-            return classObj.Subject_Title;
+            return classObj.SubjectTitle;
         }
 
         public void DeleteClass(Guid classId)
