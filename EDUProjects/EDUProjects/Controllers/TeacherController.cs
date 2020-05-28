@@ -7,6 +7,7 @@ using EDUProjects.ApplicationLogic.Service;
 using EDUProjects.Models.ClassModel;
 using Microsoft.AspNetCore.Http;
 using EDUProjects.Models.TeacherModel;
+using EDUProjects.Areas.Identity.Pages.Account;
 
 namespace EDUProjects.Controllers
 {
@@ -14,9 +15,12 @@ namespace EDUProjects.Controllers
     {
         private readonly TeacherService teacherService;
 
-        public TeacherController(TeacherService teacherService)
+        private readonly RegisterService registerService;
+
+        public TeacherController(TeacherService teacherService, RegisterService registerService)
         {
             this.teacherService = teacherService;
+            this.registerService = registerService;
         }
 
         public ActionResult ViewTeacher()
@@ -32,6 +36,26 @@ namespace EDUProjects.Controllers
                 return BadRequest("Invalid request received");
             }
 
+        }
+
+        [HttpGet]
+        public IActionResult AddTeacher()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddTeacher([FromForm] AddTeacherViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest();
+            }
+
+            registerService.AddTeacher(model.FullName, model.department, model.email, model.birthdate, model.address);
+
+            return Redirect(Url.Action("Index","TeacherRegister"));
         }
     }
 }

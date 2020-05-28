@@ -54,6 +54,11 @@ namespace EDUProjects
 			services.AddScoped<IProjectRepository, ProjectRepository>();
 			services.AddScoped<ProjectService>();
 
+			services.AddScoped<IGradingRepository, GradingRepository>();
+			services.AddScoped<ProjectService>();
+
+			services.AddScoped<RegisterService>();
+
 			services.AddControllersWithViews();
 			services.AddRazorPages();
 			

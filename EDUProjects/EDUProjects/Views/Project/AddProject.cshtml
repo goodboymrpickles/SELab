@@ -1,0 +1,31 @@
+﻿@model EDUProjects.Models.ProjectModel.AddProjectViewModel
+@{
+    ViewData["Title"] = "AddProject";
+}
+
+<h1>Upload project</h1>
+
+<form asp-action="AddProject" method="post">
+
+    <div class="row">
+        <div class="col-2">
+            Project Title
+        </div>
+        <div class="col-10">
+            <button type="submit" asp-for="Project_Title"> Upload </button>
+
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-10">
+            <a href='@Url.Action("AddComment", "Project")' class="btn btn-primary"> Add Comment</a>
+
+        </div>
+       <div class="col-2">
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
