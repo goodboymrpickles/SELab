@@ -1,0 +1,14 @@
+﻿@model EDUProjects.Models.StudentModel.AddStudentViewModel
+
+@{
+    ViewData["Title"] = "AddStudentsToClass";
+}
+
+<h1>AddStudentsToClass</h1>
+<form asp-action="AddStudentsToClass" method="post">
+<textarea class="form-control"
+          asp-for="FullName"> 
+
+</textarea>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>

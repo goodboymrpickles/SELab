@@ -1,0 +1,36 @@
+﻿@model EDUProjects.Models.ProjectModel.GetAllProjectsViewModel
+@{ ViewData["Title"] = "Index";
+}
+
+<h1>Projects </h1>
+
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th style="text-align:center">
+                @Html.DisplayName("Uploaded Project(s):")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Projects)
+        {
+            <tr>
+
+                <td style="text-align:center">
+                    @Html.DisplayFor(model => item.Project_Title)
+                </td>
+
+               <td style="text-align:center">
+                    <a href='@Url.Action("AddComment", "Project")' class="btn btn-secondary">Grade project</a>
+
+                </td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+<a href='@Url.Action("IndexStudent", "Classes")' style="float:right"> Back to Classes page</a>

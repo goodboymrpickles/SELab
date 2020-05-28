@@ -1,0 +1,45 @@
+﻿@model EDUProjects.Models.StudentModel.GetAllStudentsViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+  
+<h1>Student</h1>
+
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayName("Name")
+            </th>
+            <th>
+                @Html.DisplayName("University")
+            </th>
+            <th>
+                @Html.DisplayName("Section")
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Students)
+        {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(model => item.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => item.University)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Section)
+            </td>
+           
+        </tr>
+        }
+    </tbody>
+</table>

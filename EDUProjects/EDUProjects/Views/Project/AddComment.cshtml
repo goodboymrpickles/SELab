@@ -1,0 +1,51 @@
+﻿@model EDUProjects.Models.ProjectModel.AddCommentViewModel
+@{
+    ViewData["Title"] = "AddComment";
+}
+
+<h1>Grade project</h1>
+
+<form asp-action="AddComment" method="post">
+
+
+    <div class="row">
+        <div class="col-2">
+            <button class="btn btn-secondary">Download</button>
+        </div>
+        <div class=" col-10" style="float:right">
+            <label for="grades">Give a grade:</label>
+
+            <select asp-for="grade" id="grades">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+    </div>
+    <br /><br />
+    <div class="row">
+        <div class="col-2">
+            Leave a comment
+        </div>
+        <div class="col-10">
+            <textarea class="form-control"
+                      asp-for="Feedback"></textarea>
+        </div>
+    </div>
+    <br /><br /><br /><br /><br />
+    <div class="row">
+        <div class="col-10">
+           
+                <button type="submit" class="btn btn-secondary" style="float:right">Submit</button>
+           
+        </div>
+    </div>
+
+</form>

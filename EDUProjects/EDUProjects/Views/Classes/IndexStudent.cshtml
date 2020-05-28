@@ -1,0 +1,38 @@
+﻿@model EDUProjects.Models.ClassModel.GetAllClassesViewModel
+@{
+    ViewData["Title"] = "IndexStudent";
+}
+
+<h1>Classes List</h1>
+
+<br />
+<table class="table" BORDERCOLOR=#006666>
+    <thead>
+        <tr>
+           
+            <th style="text-align:center">
+                @Html.DisplayName("Subject title")
+            </th>
+            <th></th>
+           
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Classes)
+        {
+        <tr>
+
+            <td style="text-align:center">
+                @Html.DisplayFor(model => item.Subject_Title)
+
+            </td>
+            <td style="text-align:center">
+                <a href='@Url.Action("AddProject", "Project")' class="btn btn-secondary">Upload</a>
+            </td>
+
+        </tr>
+
+        }
+    </tbody>
+</table>

@@ -1,0 +1,29 @@
+﻿@model EDUProjects.Models.ProjectModel.AddCommentViewModel
+@{
+    ViewData["Title"] = "AddCommentStudent";
+}
+
+<h1>Leave a comment</h1>
+
+<form asp-action="AddCommentStudent" method="post">
+
+    <div class="row">
+        <div class="col-2">
+            Leave a comment
+        </div>
+        <div class="col-10">
+            <textarea class="form-control"
+                      asp-for="Feedback"></textarea>
+        </div>
+    </div>
+
+   <br />
+    <div class="row">
+        <div class="col-10">
+            <div class="col-2">
+                <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+        </div>
+    </div>
+
+</form>
