@@ -6,15 +6,22 @@
 <h1>Classes List</h1>
 
 <br />
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")  
+        <input type="submit" value="Search" /></p>
+}
 <a href='@Url.Action("AddClass", "Classes")'>Add class</a>
 <table class="table" BORDERCOLOR=#c99797>
     <thead>
         <tr>
             <th>
-                @Html.DisplayName("Class")
+                @Html.ActionLink(@Html.DisplayName("Class"), "Index", new { sortOrder = ViewBag.NameSortParm })
             </th>
             <th>
-                @Html.DisplayName("Desciption")
+                @Html.ActionLink(@Html.DisplayName("Desciption"), "Index", new { sortOrder = ViewBag.DateSortParm })
             </th>
             <th>
                 Delete class
