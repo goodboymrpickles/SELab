@@ -22,11 +22,36 @@ namespace EDUProjects.Controllers
         }
 
         // GET: Class
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "subjectTitle_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Description" ? "description_desc" : "Description";
+
             try
             {
                 var classes = classService.GetAll();
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    classes = classes.Where(s => s.SubjectTitle.Contains(searchString)
+                                           || s.Description.Contains(searchString));
+                }
+
+                switch (sortOrder)
+                {
+                    case "subjectTitle_desc":
+                        classes = classes.OrderByDescending(s => s.SubjectTitle);
+                        break;
+                    case "Description":
+                        classes = classes.OrderBy(s => s.Description);
+                        break;
+                    case "description_desc":
+                        classes = classes.OrderByDescending(s => s.Description);
+                        break;
+                    default:
+                        classes = classes.OrderBy(s => s.SubjectTitle);
+                        break;
+                }
 
                 return View(new GetAllClassesViewModel { Classes = classes });
             }
@@ -83,11 +108,11 @@ namespace EDUProjects.Controllers
         //{
         //    model.ClassId = id;
 
-        //    //if (!ModelState.IsValid)
-        //    //{
+        //    if (!ModelState.IsValid)
+        //    {
 
-        //    //    return BadRequest();
-        //    //}
+        //        return BadRequest();
+        //    }
 
         //    classService.UpdateClass(model.ClassId, model.Subject_Title, model.Description);
         //    return Redirect(Url.Action("Index", "Class"));
